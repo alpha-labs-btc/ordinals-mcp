@@ -1,0 +1,48 @@
+{
+  "name": "ordinals-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Ordiscan (Runes, BRC-20 balances and activity)",
+  "type": "module",
+  "bin": {
+    "ordinals-mcp": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "ordiscan",
+    "runes",
+    "brc-20",
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "ordinals",
+    "bitcoin"
+  ],
+  "author": "MCP",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.11.0",
+    "axios": "^1.6.7",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "js-yaml": "^4.1.0",
+    "node-fetch": "^3.3.2",
+    "ordiscan": "^1.1.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.11.24",
+    "@types/yargs": "^17.0.33",
+    "typescript": "^5.3.3"
+  }
+}

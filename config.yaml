@@ -1,0 +1,20 @@
+startCommand:
+  port: 3000
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - ordiscanApiKey
+    properties:
+      ordiscanApiKey:
+        type: string
+        description: Your Ordiscan API key (required).
+        minLength: 1
+  commandFunction: |
+    config => ({
+      command: 'node',
+      args: ['build/index.js'],
+      env: {
+        ORDISCAN_API_KEY: config.ordiscanApiKey
+      }
+    })
